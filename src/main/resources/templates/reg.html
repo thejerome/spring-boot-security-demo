@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+<h1>Hello world!</h1>
+
+<div th:if="${message} != null" th:utext="${message}">Message</div>
+<form th:action="@{/reg}" method="post">
+    <div><label>Username: <input name="username" type="text"/></label></div>
+    <div><label>Password: <input name="password" type="password"/></label></div>
+    <div><label>Repeat: <input  name="repeat" type="password"/></label></div>
+    <div><input type="submit"/></div>
+</form>
+</body>
+</html>
