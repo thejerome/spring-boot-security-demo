@@ -16,18 +16,21 @@ import java.util.Map;
 @RequestMapping("/reg")
 public class RegController {
 
-    @Autowired
-    UserRepo userRepo;
+    private final UserRepo userRepo;
+
+    public RegController(final UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @GetMapping
-    public String getReg(@ModelAttribute User user) {
+    public String getReg() {
         return "reg";
     }
 
 
     @PostMapping
     public String postReg(String username, String password, String repeat, Map<String, Object> model) {
-        if (!password.equals(repeat) ) {
+        if (!password.equals(repeat)) {
             model.put("message", "Password is bad");
             return "reg";
         }
